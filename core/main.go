@@ -2,17 +2,20 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net"
 	"net/http"
 )
 
 func reportIP(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprintf(w, "reportIP, my ip: %v.\n", getLocalIP())
+	fmt.Fprintf(w, "Update2. reportIP, my ip: %v.\n", getLocalIP())
 }
 
 func main() {
+	log.Println("running2...")
+
 	http.HandleFunc("/reportip", reportIP)
-	http.ListenAndServe(":8090", nil)
+	http.ListenAndServe(":9000", nil)
 }
 
 func getLocalIP() string {
