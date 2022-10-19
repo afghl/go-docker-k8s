@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net"
 	"net/http"
 )
@@ -12,8 +11,6 @@ func reportIP(w http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-	log.Println("running2...")
-
 	http.HandleFunc("/reportip", reportIP)
 	http.ListenAndServe(":9000", nil)
 }
